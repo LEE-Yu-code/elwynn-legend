@@ -20,15 +20,21 @@ html,body{margin:0;height:100%;overflow:hidden;background:#000;overscroll-behavi
 .btn .cd{position:absolute;left:0;right:0;bottom:0;background:#000a;pointer-events:none}
 .btn span{position:relative;z-index:2}
 #atk{width:84px;height:84px;font-size:18px;right:calc(24px + env(safe-area-inset-right));bottom:calc(24px + env(safe-area-inset-bottom))}
-#s1{width:58px;height:58px;right:calc(118px + env(safe-area-inset-right));bottom:calc(20px + env(safe-area-inset-bottom))}
-#s2{width:58px;height:58px;right:calc(108px + env(safe-area-inset-right));bottom:calc(88px + env(safe-area-inset-bottom))}
-#s3{width:58px;height:58px;right:calc(40px + env(safe-area-inset-right));bottom:calc(118px + env(safe-area-inset-bottom))}
-#pot{width:46px;height:46px;right:calc(186px + env(safe-area-inset-right));bottom:calc(20px + env(safe-area-inset-bottom));font-size:12px}
-#act{width:62px;height:62px;right:calc(176px + env(safe-area-inset-right));bottom:calc(80px + env(safe-area-inset-bottom));display:none;background:radial-gradient(circle,#e8c14a,#7a5510);color:#2b1a08}
+.sb{width:56px;height:56px;font-size:12px;padding:2px}
+.sb.empty{opacity:.35!important}
+#s1{right:calc(118px + env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom))}
+#s2{right:calc(112px + env(safe-area-inset-right));bottom:calc(82px + env(safe-area-inset-bottom))}
+#s3{right:calc(36px + env(safe-area-inset-right));bottom:calc(118px + env(safe-area-inset-bottom))}
+#s4{right:calc(182px + env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom))}
+#s5{right:calc(176px + env(safe-area-inset-right));bottom:calc(82px + env(safe-area-inset-bottom))}
+#s6{right:calc(102px + env(safe-area-inset-right));bottom:calc(148px + env(safe-area-inset-bottom))}
+#pot{width:46px;height:46px;right:calc(248px + env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom));font-size:12px}
+#act{width:62px;height:62px;right:calc(242px + env(safe-area-inset-right));bottom:calc(74px + env(safe-area-inset-bottom));display:none;background:radial-gradient(circle,#e8c14a,#7a5510);color:#2b1a08}
 .top{position:fixed;top:calc(8px + env(safe-area-inset-top));padding:6px 10px;border-radius:6px;font-size:13px;border:2px solid #8a6a2a;background:#f1dfb0;box-shadow:0 2px 6px #0008}
 #bq{right:calc(10px + env(safe-area-inset-right))}
 #bb{right:calc(70px + env(safe-area-inset-right))}
-#bm{right:calc(130px + env(safe-area-inset-right))}
+#bk{right:calc(130px + env(safe-area-inset-right))}
+#bm{right:calc(190px + env(safe-area-inset-right))}
 .panel{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(560px,88vw);max-height:84vh;overflow:auto;background:linear-gradient(#f6e7bf,#e3c98d);border:4px solid #6b4a1a;border-radius:10px;padding:14px 18px;box-shadow:0 0 0 2px #c9a24a inset,0 8px 30px #000c;display:none;font-size:14px;touch-action:pan-y}
 .panel h2{margin:0 0 8px;font-size:18px;color:#5a1a00;border-bottom:1px solid #8a6a2a}
 .panel .x{position:absolute;right:8px;top:6px;font-size:22px;padding:2px 8px;color:#5a1a00}
@@ -43,20 +49,33 @@ html,body{margin:0;height:100%;overflow:hidden;background:#000;overscroll-behavi
 #title h1{font-size:44px;margin:0;color:#ffd24a;text-shadow:0 3px 0 #6b3a00,0 0 20px #000}
 #title p{opacity:.85;margin:8px}
 #toast{position:fixed;left:50%;top:22%;transform:translateX(-50%);color:#ffd24a;font-size:20px;font-weight:bold;text-shadow:0 2px 3px #000;pointer-events:none;text-align:center;white-space:nowrap}
+.sk{margin:5px 0;padding:6px 8px;border:2px solid #8a6a2a;border-radius:6px;background:#fff6dc}.sk.locked{opacity:.5;background:#e8d8b0}
+.bar{position:sticky;top:-14px;background:#ecd69c;padding:6px 0;z-index:2}.slot{display:inline-block;margin:2px;padding:5px 7px;border:2px solid #6b4a1a;border-radius:5px;background:#fff6dc;font-size:12px}.slot.hl{background:#ffe066;border-color:#a01a0a}
+.del{color:#a01a0a;font-weight:bold;padding:0 4px}
+#learn{max-width:min(520px,80vw);position:fixed;left:50%;top:calc(60px + env(safe-area-inset-top));transform:translateX(-50%);background:rgba(20,12,4,.9);border:2px solid #c9a24a;border-radius:8px;color:#ffe9a8;padding:8px 16px;text-align:center;display:none;pointer-events:none;font-size:14px;z-index:20}
+#learn b{color:#ffd24a;font-size:16px}
+.clsc{display:inline-block;vertical-align:top;width:150px;margin:6px;padding:10px;border:3px solid #6b4a1a;border-radius:8px;background:#fff6dc;text-align:center;font-size:12px}
+.clsc b{font-size:20px;display:block;margin-bottom:4px}
 </style></head><body>
 <canvas id="c"></canvas>
 <div class="btn" id="atk"><span>攻击</span></div>
-<div class="btn" id="s1"><span>英勇<br>打击</span><div class="cd"></div></div>
-<div class="btn" id="s2"><span>冲锋</span><div class="cd"></div></div>
-<div class="btn" id="s3"><span>雷霆<br>一击</span><div class="cd"></div></div>
+<div class="btn sb" id="s1"><span></span><div class="cd"></div></div>
+<div class="btn sb" id="s2"><span></span><div class="cd"></div></div>
+<div class="btn sb" id="s3"><span></span><div class="cd"></div></div>
+<div class="btn sb" id="s4"><span></span><div class="cd"></div></div>
+<div class="btn sb" id="s5"><span></span><div class="cd"></div></div>
+<div class="btn sb" id="s6"><span></span><div class="cd"></div></div>
 <div class="btn" id="pot"><span>药水<br><b id="potn">0</b></span></div>
 <div class="btn" id="act"><span>对话</span></div>
-<div class="top" id="bq">任务</div><div class="top" id="bb">背包</div><div class="top" id="bm">🔊</div>
+<div class="top" id="bq">任务</div><div class="top" id="bb">背包</div><div class="top" id="bk">技能</div><div class="top" id="bm">🔊</div>
 <div class="panel" id="pq"><div class="x">×</div><h2>任务日志</h2><div id="qbody"></div></div>
 <div class="panel" id="pb"><div class="x">×</div><h2>角色与背包</h2><div id="bbody"></div></div>
+<div class="panel" id="pk"><div class="x">×</div><h2>技能书</h2><div id="kbody"></div></div>
+<div class="panel" id="pc" style="z-index:60;text-align:center"><div class="x">×</div><h2>选择你的职业</h2>
+<div class="clsc" data-c="warrior"><b style="color:#a0703e">⚔️ 战士</b>近战坦克，怒气驱动<br>冲锋 · 英勇打击 · 雷霆一击<br>生命最高，适合新手</div><div class="clsc" data-c="mage"><b style="color:#2a8ab8">🔥 法师</b>远程法术输出，法力驱动<br>火球术 · 寒冰箭 · 冰霜新星<br>伤害高但很脆</div><div class="clsc" data-c="priest"><b style="color:#8a7a3a">✨ 牧师</b>神圣与暗影，法力驱动<br>惩击 · 暗言术：痛 · 真言术：盾<br>能自己加血</div></div>
 <div class="panel" id="pd"><h2 id="dname"></h2><div id="dtext"></div><div id="dbtns"></div></div>
-<div id="toast"></div>
-<div id="title"><h1>艾尔文传说</h1><p>人类战士的第一段冒险</p><p style="font-size:13px">左侧摇杆移动 · 右侧按钮攻击与技能<br>电脑：WASD/方向键移动，空格攻击，1/2/3技能，Q药水，E对话</p><div class="pbtn" id="start" style="font-size:20px;padding:10px 30px">开始冒险</div><div class="pbtn" id="reset" style="background:#333;font-size:12px">重新开始</div></div>
+<div id="toast"></div><div id="learn"></div>
+<div id="title"><h1>艾尔文传说</h1><p>从北郡修道院到死亡矿井 · 战士 / 法师 / 牧师</p><p style="font-size:13px">左侧摇杆移动 · 右侧按钮攻击与技能<br>电脑：WASD/方向键移动，空格攻击，1-6技能，K技能书，Q药水，E对话</p><div class="pbtn" id="start" style="font-size:20px;padding:10px 30px">开始冒险</div><div class="pbtn" id="reset" style="background:#333;font-size:12px">重新开始</div></div>
 <div id="rot"><div class="ph"></div>请把手机横过来玩</div>
 <script src="game.js"></script>
 </body></html>
